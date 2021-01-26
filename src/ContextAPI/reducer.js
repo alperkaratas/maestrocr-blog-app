@@ -1,17 +1,11 @@
 export function reducer(state, action) {
   switch (action.type) {
-    case 'INCREASE_COUNTER':
-      state.data.counter = state.data.counter + 1;
+    case 'SAVE_RESPONSE':
+      state.data = action.data;
       return {...state};
-
-    case 'DECREASE_COUNTER':
-      state.data.counter = state.data.counter - 1;
+    case 'SEARCH_DATA':
+      state.data = action.data;
       return {...state};
-
-    case 'REFRESH_COUNTER':
-      state.data.counter = 0;
-      return {...state};
-
     default:
       return state;
   }
