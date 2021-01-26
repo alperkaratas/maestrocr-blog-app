@@ -1,34 +1,44 @@
 import React from 'react';
-import {StyleSheet, View, Text, Dimensions, Image} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Dimensions,
+  Image,
+  Platform,
+  TouchableOpacity,
+} from 'react-native';
 
 const Card = (props) => {
   return (
-    <View style={styles.generalCardView}>
+    <TouchableOpacity
+      style={styles.generalCardView}
+      onPress={() => props.navigation.navigate('Detail')}>
       <View style={styles.bannerView}>
         <Image
           style={styles.bannerImage}
           source={{
-            uri:
-              'https://www.lenasoftware.com/uploads/post/what-is-cr-blog_maestropng-w3ylweyx-.png',
+            uri: props.data.banner,
           }}
         />
       </View>
       <View style={styles.titleView}>
-        <Text style={styles.titleText}>What is Change Request Management</Text>
+        <Text style={styles.titleText}>{props.data.title}</Text>
       </View>
       <View style={styles.dividerView} />
       <View style={styles.summaryView}>
         <Text numberOfLines={3} ellipsizeMode="tail">
-          A change request is where someone within a business proposes a change
-          to a project, usually a change to a product or system. Even the
-          best-planned projects might require changes, which could be something
-          very minimal, or could be a significant change.
+          {props.data.summary}
         </Text>
       </View>
       <View style={styles.totalReadingView}>
-        <Text>Total Reading Time : 5 minute</Text>
+        <Text>Total Reading Time : {props.data.totalReadingTime} minute</Text>
+        <Image
+          style={styles.arrowRight}
+          source={require('../icon/arrow_right.png')}
+        />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -38,15 +48,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1',
     alignItems: 'center',
     width: Dimensions.get('window').width / 1.2,
-    height: Dimensions.get('window').height / 3.2,
+    height:
+      Platform.OS === 'ios'
+        ? Dimensions.get('window').height / 3
+        : Dimensions.get('window').height / 2.5,
     borderRadius: 20,
     shadowColor: '#222323',
     shadowOffset: {
       width: 0,
       height: 5,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 6,
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
     elevation: 5,
   },
   bannerView: {
@@ -60,7 +73,10 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     marginBottom: 16,
     width: Dimensions.get('window').width / 1.2,
-    height: Dimensions.get('window').height / 6.6,
+    height:
+      Platform.OS === 'ios'
+        ? Dimensions.get('window').height / 6
+        : Dimensions.get('window').height / 5.2,
   },
   titleView: {
     marginVertical: 3,
@@ -74,8 +90,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   totalReadingView: {
+    alignItems: 'center',
+    flexDirection: 'row',
     marginVertical: 3,
     marginLeft: 10,
+    marginBottom: Platform.OS === 'ios' ? null : 5,
+  },
+  arrowRight: {
+    width: 30,
+    height: 30,
+    marginLeft: 40,
   },
 });
 
