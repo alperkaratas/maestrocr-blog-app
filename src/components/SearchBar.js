@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
       width: 0,
       height: 5,
     },
-    shadowOpacity: 0.36,
-    shadowRadius: 6.68,
-    elevation: 11,
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 3,
     width: Dimensions.get('window').width / 1.5,
   },
   textInput: {
