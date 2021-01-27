@@ -1,15 +1,22 @@
-import React, {useContext} from 'react';
-import {SafeAreaView, View, Text} from 'react-native';
-import Context from '../ContextAPI/store';
+import React from 'react';
+import {SafeAreaView, ScrollView, Text, Image, Dimensions} from 'react-native';
 
-const Detail = (props) => {
-  const {state, dispatch} = useContext(Context);
+const Detail = ({route, navigation}) => {
+  const {image, title, content, createdAt, totalReadingTime} = route.params;
 
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Second Page: {state.data.counter}</Text>
-      </View>
+    <SafeAreaView style={{flex: 1}}>
+      <Image
+        resizeMode="stretch"
+        style={{width: Dimensions.get('window').width, height: 250}}
+        source={{uri: image}}
+      />
+      <Text>{title}</Text>
+      <ScrollView style={{flex: 1}}>
+        <Text>{content}</Text>
+      </ScrollView>
+      <Text>{createdAt}</Text>
+      <Text>{totalReadingTime}</Text>
     </SafeAreaView>
   );
 };
