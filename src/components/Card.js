@@ -13,7 +13,7 @@ const Card = (props) => {
   return (
     <TouchableOpacity
       style={styles.generalCardView}
-      onPress={() => props.navigation.navigate('Detail')}>
+      onPress={props.onRestSelect}>
       <View style={styles.bannerView}>
         <Image
           style={styles.bannerImage}
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     height:
       Platform.OS === 'ios'
         ? Dimensions.get('window').height / 3
-        : Dimensions.get('window').height / 2.5,
+        : Dimensions.get('window').height / 2.3,
     borderRadius: 20,
     shadowColor: '#222323',
     shadowOffset: {
