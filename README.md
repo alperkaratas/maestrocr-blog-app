@@ -23,5 +23,5 @@ ___
 
 ## 📝 TO-DO
  
-- [ ] Infinit Scroll
+- [ ] Infinite Scroll
 - [ ] Pull to refresh
