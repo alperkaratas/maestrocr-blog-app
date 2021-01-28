@@ -16,7 +16,6 @@ import Context from '../ContextAPI/store';
 
 const Home = (props) => {
   const [searchData, setSearched] = useState([]);
-  const [passingData, setPassingData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   // const [page, setPage] = useState(1); - infinite scrol state
   const {state, dispatch} = useContext(Context);
@@ -31,10 +30,9 @@ const Home = (props) => {
     await fetch(fetchAPI)
       .then((response) => response.json())
       .then((response) => {
-        setPassingData(response.result);
         dispatch({
           type: 'SAVE_RESPONSE',
-          data: [...passingData, ...response.result],
+          data: response.result,
         });
         setSearched(response.result); // - searchData's useState is used for searchbar only. -
       })
