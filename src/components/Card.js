@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   generalCardView: {
     borderWidth: 2,
     borderColor: 'white',
-    borderTopColor: 'white',
+    borderTopColor: '#f1f1f1',
     borderBottomColor: '#4643f6',
     marginVertical: 10,
     backgroundColor: 'white',
