@@ -111,6 +111,9 @@ const Home = (props) => {
           />
         </View>
       )}
+      <View style={styles.appNameView}>
+        <Text style={styles.appNameText}>Maestrocr Blog</Text>
+      </View>
     </SafeAreaView>
   );
 };
@@ -118,6 +121,7 @@ const Home = (props) => {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
+    backgroundColor: '#f1f1f1',
   },
   mainLogoView: {
     marginTop: 5,
@@ -145,6 +149,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  appNameView: {
+    alignSelf: 'center',
+    marginBottom: 10,
+  },
+  appNameText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#0f1016',
   },
 });
 
