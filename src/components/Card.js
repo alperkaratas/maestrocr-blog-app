@@ -32,7 +32,9 @@ const Card = (props) => {
         </Text>
       </View>
       <View style={styles.totalReadingView}>
-        <Text>Total Reading Time : {props.data.totalReadingTime} minute</Text>
+        <Text style={styles.totalReadingText}>
+          Total Reading Time : {props.data.totalReadingTime} minute
+        </Text>
         <Image
           style={styles.arrowRight}
           source={require('../icon/arrow_right.png')}
@@ -44,13 +46,17 @@ const Card = (props) => {
 
 const styles = StyleSheet.create({
   generalCardView: {
+    borderWidth: 2,
+    borderColor: 'white',
+    borderTopColor: 'white',
+    borderBottomColor: '#4643f6',
     marginVertical: 10,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: 'white',
     alignItems: 'center',
     width: Dimensions.get('window').width / 1.2,
     height:
       Platform.OS === 'ios'
-        ? Dimensions.get('window').height / 3
+        ? Dimensions.get('window').height / 2.6
         : Dimensions.get('window').height / 2.3,
     borderRadius: 20,
     shadowColor: '#222323',
@@ -79,22 +85,29 @@ const styles = StyleSheet.create({
         : Dimensions.get('window').height / 5.2,
   },
   titleView: {
-    marginVertical: 3,
+    marginHorizontal: 9,
+    padding: 2,
   },
   titleText: {
-    fontSize: 15,
+    fontSize: 17,
     fontWeight: 'bold',
+    color: '#0f1016',
   },
   summaryView: {
-    marginVertical: 3,
-    marginHorizontal: 10,
+    marginHorizontal: 9,
+    marginTop: 5,
   },
   totalReadingView: {
+    flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
     marginVertical: 3,
     marginLeft: 10,
-    marginBottom: Platform.OS === 'ios' ? null : 5,
+    marginBottom: Platform.OS === 'ios' ? -8 : -5,
+  },
+  totalReadingText: {
+    fontSize: 13,
+    fontWeight: 'bold',
   },
   arrowRight: {
     width: 30,

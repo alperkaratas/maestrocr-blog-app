@@ -23,7 +23,6 @@ const Detail = ({route, navigation}) => {
     ' / ' +
     date.getFullYear();
 
-  console.log(formattingDate);
   return (
     <SafeAreaView style={styles.main}>
       <TouchableOpacity
